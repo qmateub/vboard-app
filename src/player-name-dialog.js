@@ -1,5 +1,6 @@
 import React from 'react';
 import { Dialog, TextInput } from 'evergreen-ui';
+import messages from './messages';
 
 const positions = [
 	'setter',
@@ -23,17 +24,19 @@ const PlayerNameDialog = props => {
 	return (
 		<Dialog
 			isShown={props.isShown}
-			title='Guardar posiciones'
+			title={messages[props.language].savePositions}
 			onCloseComplete={props.onCloseComplete}
 			onConfirm={() => props.onConfirm(value)}
-			confirmLabel='Guardar'
+			confirmLabel={messages[props.language].save}
 		>
 			{positions.map(position => (
 				<TextInput
 					key={position}
 					style={{ margin: 4 }}
 					name={position}
-					placeholder={`Nombre ${position}`}
+					placeholder={
+						messages[props.language][`${position}Placeholder`]
+					}
 					value={value[{ position }]}
 					onChange={e =>
 						setValue({

@@ -8,6 +8,7 @@ import Player from './player';
 import LeftBar from './left-bar';
 import Legend from './legend';
 import { initial } from './positions';
+import messages from './messages';
 
 function App() {
 	let setter, recep1, recep2, opuesto, central, libero, ball, stage, court;
@@ -31,6 +32,7 @@ function App() {
 	const [lines, setLines] = React.useState([]);
 	const [isPaint, setIsPaint] = React.useState(false);
 	const [strokeWidth, setStrokeWidth] = React.useState(1);
+	const [language, setLanguage] = React.useState('en');
 	const color = '#000000';
 	React.useEffect(() => {
 		setRefs({
@@ -45,7 +47,7 @@ function App() {
 			court,
 		});
 		if (hasToExport) {
-			const src = stage.toDataURL({
+			const src = court.toDataURL({
 				pixelRatio: 2,
 			});
 			setUri(src);
@@ -127,18 +129,20 @@ function App() {
 				alignItems='center'
 			>
 				<Heading size={600}>
-					<span role='img' aria-label='vball'>
+					<span role='img' aria-label='vball-1'>
 						🏐
-					</span>
-					Volley Board
-					<span role='img' aria-label='vball'>
+					</span>{' '}
+					{messages[language].title}{' '}
+					<span role='img' aria-label='vball-2'>
 						🏐
-					</span>
-					- A simple tool for building your own on court tactics
+					</span>{' '}
+					{messages[language].subtitle}
 				</Heading>
 			</Pane>
 			<Pane display='flex' flexDirection='row' backgroundColor='#0A5CAF'>
 				<LeftBar
+					language={language}
+					setLanguage={setLanguage}
 					setPositions={setPositions}
 					setHasClicked={setHasClicked}
 					setLines={setLines}
@@ -158,7 +162,7 @@ function App() {
 						stage = node;
 					}}
 					width={window.innerWidth - 450}
-					height={window.innerHeight}
+					height={window.innerHeight - 50}
 					onMouseUp={e => {
 						setIsPaint(false);
 					}}
@@ -205,7 +209,7 @@ function App() {
 								x={posIni.setter.x}
 								y={posIni.setter.y}
 								name={positions.setter.name}
-								label='S'
+								label={messages[language].setterLabel}
 								onDragEnd={newPosition =>
 									setPositions({
 										...positions,
@@ -223,7 +227,7 @@ function App() {
 								name={positions.recep1.name}
 								x={posIni.recep1.x}
 								y={posIni.recep1.y}
-								label='R'
+								label={messages[language].wing1Label}
 								onDragEnd={newPosition =>
 									setPositions({
 										...positions,
@@ -240,7 +244,7 @@ function App() {
 								}}
 								x={posIni.recep2.x}
 								y={posIni.recep2.y}
-								label='R'
+								label={messages[language].wing2Label}
 								name={positions.recep2.name}
 								onDragEnd={newPosition =>
 									setPositions({
@@ -259,7 +263,7 @@ function App() {
 								x={posIni.opuesto.x}
 								y={posIni.opuesto.y}
 								name={positions.opuesto.name}
-								label='O'
+								label={messages[language].oppositeLabel}
 								onDragEnd={newPosition =>
 									setPositions({
 										...positions,
@@ -277,7 +281,7 @@ function App() {
 								x={posIni.central.x}
 								y={posIni.central.y}
 								name={positions.central.name}
-								label='C'
+								label={messages[language].middleBlocker1Label}
 								onDragEnd={newPosition =>
 									setPositions({
 										...positions,
@@ -294,7 +298,7 @@ function App() {
 								}}
 								x={posIni.libero.x}
 								y={posIni.libero.y}
-								label='L'
+								label={messages[language].liberoLabel}
 								name={positions.libero.name}
 								isLibero
 								onDragEnd={newPosition =>
@@ -310,7 +314,17 @@ function App() {
 						</Group>
 					</Layer>
 				</Stage>
-				<Legend />
+				<Legend language={language} />
+			</Pane>
+			<Pane
+				border
+				height={20}
+				padding={6}
+				display='flex'
+				justifyContent='center'
+				alignItems='center'
+			>
+				<Heading size={400}>{messages[language].footer}</Heading>
 			</Pane>
 		</Pane>
 	);

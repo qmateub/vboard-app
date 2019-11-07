@@ -12,6 +12,7 @@ import ExportImage from './export-image';
 import SaveDialog from './save-dialog';
 import PlayerNameDialog from './player-name-dialog';
 import { initial } from './positions';
+import messages from './messages';
 
 const buttonStyle = {
 	margin: '6px',
@@ -40,9 +41,12 @@ function LeftBar(props) {
 			maxWidth='20'
 			padding={4}
 		>
-			<Tooltip content='Reset'>
+			<Tooltip content={messages[props.language].reset}>
 				<IconButton
-					style={buttonStyle}
+					style={{
+						...buttonStyle,
+						marginTop: '40px',
+					}}
 					height={50}
 					icon='undo'
 					onClick={() => {
@@ -51,7 +55,7 @@ function LeftBar(props) {
 					}}
 				/>
 			</Tooltip>
-			<Tooltip content='Borrar líneas'>
+			<Tooltip content={messages[props.language].deleteLines}>
 				<IconButton
 					style={buttonStyle}
 					height={50}
@@ -61,7 +65,7 @@ function LeftBar(props) {
 					}}
 				/>
 			</Tooltip>
-			<Tooltip content='Guardar táctica'>
+			<Tooltip content={messages[props.language].saveTactic}>
 				<IconButton
 					style={buttonStyle}
 					height={50}
@@ -82,7 +86,7 @@ function LeftBar(props) {
 					props.setIsModalOpen(false);
 				}}
 			/>
-			<Tooltip content='Nombre de jugadores'>
+			<Tooltip content={messages[props.language].playerNames}>
 				<IconButton
 					style={buttonStyle}
 					height={50}
@@ -91,6 +95,7 @@ function LeftBar(props) {
 				/>
 			</Tooltip>
 			<PlayerNameDialog
+				language={props.language}
 				isShown={props.isModalPlayerOpen}
 				onCloseComplete={() => {
 					props.setIsModalPlayerOpen(false);
@@ -114,7 +119,7 @@ function LeftBar(props) {
 			/>
 			<SelectMenu
 				style={buttonStyle}
-				title='Selecciona táctica'
+				title={messages[props.language].selectTactic}
 				options={options}
 				selected=''
 				onSelect={item => {
@@ -127,7 +132,7 @@ function LeftBar(props) {
 					}
 				}}
 			>
-				<Tooltip content='Seleccionar táctica'>
+				<Tooltip content={messages[props.language].selectTactic}>
 					<IconButton
 						style={buttonStyle}
 						height={50}
@@ -135,7 +140,7 @@ function LeftBar(props) {
 					/>
 				</Tooltip>
 			</SelectMenu>
-			<Tooltip content='Exportar a PNG'>
+			<Tooltip content={messages[props.language].export}>
 				<IconButton
 					style={buttonStyle}
 					height={50}
@@ -151,6 +156,14 @@ function LeftBar(props) {
 					fileName={`vboard-${Date.now()}.png`}
 				/>
 			)}
+			<Select
+				onChange={event => props.setLanguage(event.target.value)}
+				style={{ ...buttonStyle, maxHeight: '35px' }}
+				value={props.language}
+			>
+				<option value='en'>EN</option>
+				<option value='es'>ES</option>
+			</Select>
 			<Strong
 				size={500}
 				style={{
@@ -158,7 +171,7 @@ function LeftBar(props) {
 					color: 'white',
 				}}
 			>
-				<u>Opciones de lápiz</u>
+				<u>{messages[props.language].drawOptions}</u>
 			</Strong>
 			<Select
 				onChange={event => props.setStrokeWidth(event.target.value)}

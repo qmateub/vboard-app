@@ -1,6 +1,19 @@
 import React from 'react';
 import { Text, Circle, Group } from 'react-konva';
 
+const defineXPerLabel = label => {
+	switch (label) {
+		case 'MB':
+			return -13;
+		case 'W':
+			return -8;
+		case 'O':
+			return -6;
+		default:
+			return -5;
+	}
+};
+
 const Player = props => {
 	return (
 		<Group
@@ -15,7 +28,7 @@ const Player = props => {
 			<Text
 				ref={node => node && node.moveToTop()}
 				fill={props.isLibero ? 'white' : 'black'}
-				x={-5}
+				x={defineXPerLabel(props.label)}
 				y={-7}
 				text={props.label}
 				fontSize={18}

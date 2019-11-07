@@ -1,5 +1,6 @@
 import React from 'react';
 import { Pane, Text } from 'evergreen-ui';
+import messages from './messages';
 
 const Legend = props => {
 	return (
@@ -12,16 +13,16 @@ const Legend = props => {
 			flex={2}
 		>
 			<Text size={500} color='white'>
-				R - Receptor
+				{messages[props.language].wingLegend}
 			</Text>
 			<Text size={500} color='white'>
-				L - Líbero
+			{messages[props.language].liberoLegend}
 			</Text>
 			<Text size={500} color='white'>
-				C - Central
+			{messages[props.language].middleBlockerLegend}
 			</Text>
 			<Text size={500} color='white'>
-				S - Setter/Armador
+				{messages[props.language].setterLegend}
 			</Text>
 		</Pane>
 	);
