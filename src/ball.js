@@ -3,7 +3,7 @@ import { Image } from 'react-konva';
 import useImage from 'use-image';
 
 const Ball = props => {
-	const [image] = useImage('http://localhost:3000/ball3.png');
+	const [image] = useImage('https://qmateub.github.io/vboard-app/ball3.png');
 	return <Image image={image} {...props} ref={props.getRef} />;
 };
 
