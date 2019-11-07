@@ -14,7 +14,7 @@ export default {
 	deleteLines: 'Delete lines',
 	saveTactic: 'Save tactic',
 	playerNames: 'Player names',
-	selectTactic: 'Select tactic',
+	selectTactic: 'Open saved tactic',
 	export: 'Export to PNG',
 	drawOptions: 'Draw options',
 	wingLegend: 'W - Wing',
@@ -31,4 +31,5 @@ export default {
 	savePositions: 'Save positions',
 	save: 'Save',
 	tacticName: 'Tactic name',
+	language: 'Language',
 };

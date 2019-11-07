@@ -38,8 +38,11 @@ function LeftBar(props) {
 			background='#0A5CAF'
 			alignItems='center'
 			borderRight
-			maxWidth='20'
+			flex={2}
 			padding={4}
+			style={{
+				maxWidth: '160px',
+			}}
 		>
 			<Tooltip content={messages[props.language].reset}>
 				<IconButton
@@ -136,7 +139,7 @@ function LeftBar(props) {
 					<IconButton
 						style={buttonStyle}
 						height={50}
-						icon='applications'
+						icon='folder-open'
 					/>
 				</Tooltip>
 			</SelectMenu>
@@ -156,6 +159,15 @@ function LeftBar(props) {
 					fileName={`vboard-${Date.now()}.png`}
 				/>
 			)}
+			<Strong
+				size={500}
+				style={{
+					...buttonStyle,
+					color: 'white',
+				}}
+			>
+				<u>{messages[props.language].language}</u>
+			</Strong>
 			<Select
 				onChange={event => props.setLanguage(event.target.value)}
 				style={{ ...buttonStyle, maxHeight: '35px' }}

@@ -20,7 +20,7 @@ export default {
 	wingLegend: 'R - Receptor',
 	liberoLegend: 'L - Líbero',
 	middleBlockerLegend: 'C - Central',
-	setterLegend: 'S - Setter/Armador',
+	setterLegend: 'S - Setter / Armador / Colocador',
 	setterPlaceholder: 'Nombre setter',
 	middleBlocker1Placeholder: 'Nombre central',
 	middleBlocker2Placeholder: 'Nombre central',
@@ -31,4 +31,5 @@ export default {
 	savePositions: 'Guardar posiciones',
 	save: 'Guardar',
 	tacticName: 'Nombre para la táctica',
+	language: 'Idioma',
 };
