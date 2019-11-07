@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/vboard-app/static/css/main.8b6dda85.chunk.css",
-    "main.js": "/vboard-app/static/js/main.5fe6fb45.chunk.js",
-    "main.js.map": "/vboard-app/static/js/main.5fe6fb45.chunk.js.map",
+    "main.js": "/vboard-app/static/js/main.376b81be.chunk.js",
+    "main.js.map": "/vboard-app/static/js/main.376b81be.chunk.js.map",
     "runtime-main.js": "/vboard-app/static/js/runtime-main.ba2046fd.js",
     "runtime-main.js.map": "/vboard-app/static/js/runtime-main.ba2046fd.js.map",
-    "static/js/2.7df2b5ab.chunk.js": "/vboard-app/static/js/2.7df2b5ab.chunk.js",
-    "static/js/2.7df2b5ab.chunk.js.map": "/vboard-app/static/js/2.7df2b5ab.chunk.js.map",
+    "static/js/2.b4dd1afc.chunk.js": "/vboard-app/static/js/2.b4dd1afc.chunk.js",
+    "static/js/2.b4dd1afc.chunk.js.map": "/vboard-app/static/js/2.b4dd1afc.chunk.js.map",
     "index.html": "/vboard-app/index.html",
-    "precache-manifest.007da50732820e35b8d20b11d775b629.js": "/vboard-app/precache-manifest.007da50732820e35b8d20b11d775b629.js",
+    "precache-manifest.6d837779bc0be9e66da6b0480d6f983d.js": "/vboard-app/precache-manifest.6d837779bc0be9e66da6b0480d6f983d.js",
     "service-worker.js": "/vboard-app/service-worker.js",
     "static/css/main.8b6dda85.chunk.css.map": "/vboard-app/static/css/main.8b6dda85.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.ba2046fd.js",
-    "static/js/2.7df2b5ab.chunk.js",
+    "static/js/2.b4dd1afc.chunk.js",
     "static/css/main.8b6dda85.chunk.css",
-    "static/js/main.5fe6fb45.chunk.js"
+    "static/js/main.376b81be.chunk.js"
   ]
 }
