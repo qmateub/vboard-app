@@ -20,11 +20,21 @@ const Player = props => {
 				text={props.label}
 				fontSize={18}
 			/>
+			{props.name && (
+				<Text
+					ref={node => node && node.moveToTop()}
+					fill='white'
+					x={-((props.name.length * 45) / 10)}
+					y={-30}
+					text={props.name.toUpperCase()}
+					fontSize={12}
+				/>
+			)}
 			<Circle
 				shadowBlur={2}
 				radius={15}
 				fill={props.isLibero ? 'blue' : 'red'}
-			></Circle>
+			/>
 		</Group>
 	);
 };

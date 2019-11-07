@@ -2,7 +2,7 @@ import React from 'react';
 import { Dialog, TextInput } from 'evergreen-ui';
 
 const SaveDialog = props => {
-	const [value, setValue] = React.useState('');
+	const [value, setValue] = React.useState();
 	return (
 		<Dialog
 			isShown={props.isShown}

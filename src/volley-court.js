@@ -67,12 +67,11 @@ function VolleyCourt(props) {
 				onMouseDown={e => {
 					props.setIsPaint(true);
 					const pointer = e.target.getStage().getPointerPosition();
-					console.log(pointer);
 					const newLines = props.lines.concat({
 						id: Date.now(),
 						tool: 'pen',
 						points: [pointer.x, pointer.y],
-						strokeWidth: props.strokeWidth,
+						strokeWidth: Number(props.strokeWidth),
 						color: props.color,
 					});
 					props.setLines(newLines);
